@@ -1,0 +1,37 @@
+html {
+    background-color: #ccc;
+    color: #2a2a2a;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+
+.modal {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #8fb19e;
+    padding: 30px;
+    border: 3px dashed rebeccapurple;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.message-wrapper {
+    text-align: center;
+}
+
