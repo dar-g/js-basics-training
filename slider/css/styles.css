@@ -21,6 +21,7 @@ h1 {
     height: 300px;
     margin: 20px auto 0 auto;
     border-radius: 4px;
+    overflow: hidden;
 }
 
 ul {
@@ -30,12 +31,12 @@ ul {
     margin: 0 auto;
     padding: 0;
     list-style: none;
-    overflow: hidden;
+    transition: transform 0.5s ease;
 }
 
 ul li {
     position: relative;
-    display: none;
+    display: flex;
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
@@ -43,10 +44,6 @@ ul li {
     padding: 0;
     width: 500px;
     height: 300px;
-}
-
-ul li.active {
-    display: flex;
 }
 
 ul li:nth-child(odd) {
@@ -57,8 +54,7 @@ ul li:nth-child(even) {
     background-color: #aaa;
 }
 
-a.control_prev,
-a.control_next {
+.control-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -69,22 +65,29 @@ a.control_next {
     text-decoration: none;
     font-weight: 600;
     font-size: 18px;
+    border: none;
     opacity: 0.8;
     cursor: pointer;
     z-index: 10;
 }
 
-a.control_prev:hover,
-a.control_next:hover {
+.control_prev:hover,
+.control_next:hover {
     opacity: 1;
     transition: all 0.2s ease;
 }
 
-a.control_prev {
+.control_prev {
     border-radius: 0 2px 2px 0;
 }
 
-a.control_next {
+.control_next {
     right: 0;
     border-radius: 2px 0 0 2px;
 }
+
+.control-btn[disabled] {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
