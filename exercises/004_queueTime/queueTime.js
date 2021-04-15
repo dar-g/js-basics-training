@@ -9,34 +9,30 @@
     // should return 12, because when there is 1 till, the total time is just the sum of the times
  */
 
-let customersQueue = [1, 2, 5];
-
 function calcQueueTime (customers, numOfTills) {
-    let customerTime = 0;
+    let totalTime = 0;
     let numOfCustomers = customers.length;
 
     for (let i = 0; i < numOfCustomers; i++) {
-        customerTime += customers[i];
+        totalTime += customers[i];
     }
 
     let longestCustomer = Math.max(...customers);
-    let totalTimeWithoutLongestC = customerTime - longestCustomer;
-
-    console.log(numOfCustomers, longestCustomer, totalTimeWithoutLongestC);
+    let totalTimeWithoutLongestC = totalTime - longestCustomer;
 
     if (numOfTills < numOfCustomers) {
         if (totalTimeWithoutLongestC > longestCustomer) {
-            return customerTime / numOfTills;
+            return totalTime / numOfTills;
         } else {
             return longestCustomer;
         }
     } else {
         if (totalTimeWithoutLongestC > longestCustomer) {
-            return customerTime / numOfCustomers;
+            return totalTime / numOfCustomers;
         } else {
             return longestCustomer;
         }
     }
 }
 
-console.log(calcQueueTime(customersQueue, 3));
+console.log(calcQueueTime([1, 2, 1, 4], 2));
